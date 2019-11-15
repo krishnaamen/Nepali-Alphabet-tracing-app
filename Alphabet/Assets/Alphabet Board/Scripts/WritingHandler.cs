@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
+
 
 public class WritingHandler : MonoBehaviour
 {
 		public GameObject[] letters;//the letters list from A-Z
-		public static int currentLetterIndex;//the index of the current letter
+        public AudioSource[] letterSound;
+        public static int currentLetterIndex;//the index of the current letter
 		private bool clickBeganOrMovedOutOfLetterArea;//does the click began or moved out of letter area
 		private int previousTracingPointIndex;//the index of the previous letter
 		private ArrayList currentTracingPoints;//holds the indexes of the tracing points
@@ -219,20 +222,26 @@ public class WritingHandler : MonoBehaviour
 				previousPosition = Vector2.zero;//reset previous position
 				currentTracingPoints.Clear ();//clear record of indexed
 				previousTracingPointIndex = 0;//reset previous selected Index(index as point id)
-				CheckLetterDone ();//check if the entier letter is written successfully or done
-				if (letterDone) {//if the current letter done or wirrten successfully
-						if (cheeringSound != null)
+				CheckLetterDone ();
+        //check if the entier letter is written successfully or done
+        letterSound[currentLetterIndex].Play();
+        if (letterDone) {//if the current letter done or wirrten successfully
+            letterSound[currentLetterIndex].Play();
+            if (cheeringSound != null)
 								AudioSource.PlayClipAtPoint (cheeringSound, Vector3.zero, 0.8f);//play the cheering sound effect
 						hand.GetComponent<SpriteRenderer> ().enabled = false;//hide the hand
-            Destroy(letters[currentLetterIndex], 1.0f);
+            
+            Destroy(letters[currentLetterIndex], 2.0f);
+            
+           
+
             
 
 
 
 
 
-
-                }
+        }
 		}
 
 		//Check letter done or not
@@ -340,7 +349,7 @@ public class WritingHandler : MonoBehaviour
 				if (positiveSound != null)
 						AudioSource.PlayClipAtPoint (positiveSound, Vector3.zero, 0.8f);//play the cheering sound effect
 		}
-
+    
 		//Play wrong or opps sound effect
 		private void PlayWrongSound ()
 		{
@@ -348,7 +357,7 @@ public class WritingHandler : MonoBehaviour
 						AudioSource.PlayClipAtPoint (wrongSound, Vector3.zero, 0.8f);//play the cheering sound effect
 		}
 
-    //Load the next letter
+    //Load the next letter-
     [System.Obsolete]
     public void LoadNextLetter ()
 		{
