@@ -29,10 +29,10 @@ public class PlatformChecker : MonoBehaviour
 		//		return Application.isWebPlayer;
 		//}
 	
-		public static bool isFlash ()
-		{
-				return Application.platform == RuntimePlatform.FlashPlayer;
-		}
+		//public static bool isFlash ()
+		//{
+		//		return Application.platform == RuntimePlatform.FlashPlayer;
+		//}
 	
 		public static bool IsWindowsEditor ()
 		{

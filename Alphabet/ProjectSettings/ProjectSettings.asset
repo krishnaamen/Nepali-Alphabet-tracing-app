@@ -847,7 +847,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
+    UNet: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -867,10 +872,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: a0e07542-c70e-496b-9d65-e8dffb934369
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Nepali Alphabet Tracing App
+  organizationId: krishnaamen
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
